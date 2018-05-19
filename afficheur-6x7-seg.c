@@ -1,11 +1,10 @@
 /*
- * File:   ports-io-7seg.c
- * Author: jmgonet
- *
- * Created on 19. novembre 2012, 08:21
+ * Démontre comment gérer 6 afficheurs LCD avec uniquement deux 
+ * ports du micro-contrôleur. 
+ * @author jean-michel-gonet
  */
 
-#include <htc.h>
+#include <xc.h>
 #include <stdio.h>
 
 /**
