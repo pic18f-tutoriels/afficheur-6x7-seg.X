@@ -12,10 +12,10 @@
  * Bits de configuration:
  */
 #pragma config FOSC = INTIO67  // Osc. interne, A6 et A7 comme IO.
-#pragma config IESO = OFF      // Pas d'osc. au démarrage.
+#pragma config IESO = OFF      // Pas d'osc. au dï¿½marrage.
 #pragma config FCMEN = OFF     // Pas de monitorage de l'oscillateur.
 
-// Nécessaires pour ICSP / ICD:
+// NÃ©cessaires pour ICSP / ICD:
 #pragma config MCLRE = EXTMCLR // RE3 est actif comme master reset.
 #pragma config WDTEN = OFF     // Watchdog inactif.
 #pragma config LVP = OFF       // Single Supply Enable bits off.
@@ -32,18 +32,18 @@ unsigned char AFFICHAGE_led[] =
 };
 
 /**
- * Contenu à afficher sur l'afficheur 7 segments multiple.
+ * Contenu Ã  afficher sur l'afficheur 7 segments multiple.
  */
 unsigned char AFFICHAGE_contenu[7];
 
 /**
- * Prochain digit à activer.
+ * Prochain digit Ã  activer.
  */
 unsigned char AFFICHAGE_digit = 0;
 
 /**
- * À chaque appel, affiche un digit sur l'afficheur
- * multiple. Cette fonction est à appeler successivement
+ * Ã€ chaque appel, affiche un digit sur l'afficheur
+ * multiple. Cette fonction est Ã  appeler successivement
  * pour obtenir l'affichage de tous les digits.
  */
 void AFFICHAGE_raffraichir()
@@ -65,25 +65,25 @@ void AFFICHAGE_raffraichir()
 }
 
 /**
- * Point d'entrée.
+ * Point d'entrÃ©e.
  * Configure les ports A et C comme sorties, puis
- * appèle l'affichage du chiffre "123456".
+ * appelle l'affichage du chiffre "123456".
  */
 void main()
 {
     int n;
 
-    // Configuration du micro-contrôleur:
-    ANSELA = 0x00;      // Désactive les convertisseurs A/D.
-    ANSELB = 0x00;      // Désactive les convertisseurs A/D.
-    ANSELC = 0x00;      // Désactive les convertisseurs A/D.
+    // Configuration du micro-contrÃ´leur:
+    ANSELA = 0x00;      // DÃ©sactive les convertisseurs A/D.
+    ANSELB = 0x00;      // DÃ©sactive les convertisseurs A/D.
+    ANSELC = 0x00;      // DÃ©sactive les convertisseurs A/D.
     TRISA = 0x00;       // Tous les bits du port A comme sorties.
     TRISC = 0x00;       // Tous les bits du port C comme sorties.
 
-    // Prépare un message à afficher:
+    // PrÃ©pare un message Ã  afficher:
     sprintf(AFFICHAGE_contenu,"123456");
 
-    // Boucle principale, appèle le rafraichissement
+    // Boucle principale, appelle le rafraÃ®chissement
     // de l'affichage.
     while(1)
     {
